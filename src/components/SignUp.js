@@ -17,12 +17,17 @@ export default class SignUp extends Component {
             [e.target.name]:e.target.value
         })
       }
+
+      handleSubmit=(e)=>{
+        e.preventDefault()
+        console.log(this.state)
+      }
      
     render() {
         return (
             <div>
                 <h1>Sign Up</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} name="fistName" placeholder="First Name"type="text"/><br/>
                     <input onChange={this.handleChange} name="lastName" placeholder="Last Name"type="text"/><br/>
                     <input onChange={this.handleChange} name="username" placeholder="Username"type="text"/><br/>
