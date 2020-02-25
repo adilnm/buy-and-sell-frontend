@@ -20,7 +20,13 @@ export default class SignUp extends Component {
 
       handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
+        fetch('http://localhost:3001/users',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({user:this.state})
+        })
       }
      
     render() {
