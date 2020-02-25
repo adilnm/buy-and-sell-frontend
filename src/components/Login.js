@@ -2,14 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import signup from '../actions/SignUp'
 
-class SignUp extends Component {
+class Login extends Component {
     constructor() {
         super()
         this.state = {
-          firstName:'',
-          lastName:'',
           username:'',
-          email:'',
           password:''
         }
       }
@@ -22,7 +19,7 @@ class SignUp extends Component {
 
       handleSubmit=(e)=>{
         e.preventDefault()
-        fetch('http://localhost:3001/users',{
+        fetch('http://localhost:3001/sessions',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,18 +35,15 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <h1>Sign Up</h1>
+                <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} name="firstName" placeholder="First Name"type="text"/><br/>
-                    <input onChange={this.handleChange} name="lastName" placeholder="Last Name"type="text"/><br/>
                     <input onChange={this.handleChange} name="username" placeholder="Username"type="text"/><br/>
-                    <input onChange={this.handleChange} name="email" placeholder="Email"type="email"/><br/>
                     <input onChange={this.handleChange} name="password" placeholder="Password"type="password"/><br/>
-                    <input type="submit" value="Sign Up"/>
+                    <input type="submit" value="Log in"/>
                 </form>
             </div>
         )
     }
 }
 
-export default connect(null, {signup})(SignUp)
+export default connect(null, {signup})(Login)
