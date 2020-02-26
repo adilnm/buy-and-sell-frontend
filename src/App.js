@@ -4,30 +4,45 @@ import Login from './components/Login';
 import { connect } from 'react-redux';
 import signup from './actions/SignUp'
 import Logout from './components/Logout';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 
-class App extends Component{
+class App extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     this.loggedIn()
   }
 
-  loggedIn(){
-    fetch('http://localhost:3001/loggedin',{credentials: 'include'})
-      .then(res=>res.json())
-      .then(user=>{
+  loggedIn() {
+    fetch('http://localhost:3001/loggedin', { credentials: 'include' })
+      .then(res => res.json())
+      .then(user => {
         this.props.signup(user)
       })
   }
 
-  render(){
+  render() {
+
     return (
-      <div className="App">
-        <SignUp/>
-        <Login/>
-        <Logout/>
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/login" component={Login} />
+            {/* {this.props.currentUser[0]} */}
+            <Logout />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
 
-export default connect(null, {signup})(App);
+const mstp = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mstp, { signup })(App);

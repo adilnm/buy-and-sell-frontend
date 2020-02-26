@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import SignUpForm from './reducers/SignUpForm';
 
 const rootReducer=combineReducers({
-    SignUpForm
+    currentUser:SignUpForm
    });
 
    const store = createStore(
