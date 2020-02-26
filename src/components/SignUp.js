@@ -24,6 +24,7 @@ class SignUp extends Component {
         e.preventDefault()
         fetch('http://localhost:3001/users',{
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

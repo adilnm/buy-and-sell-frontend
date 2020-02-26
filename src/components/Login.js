@@ -21,6 +21,7 @@ class Login extends Component {
         e.preventDefault()
         fetch('http://localhost:3001/sessions',{
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
