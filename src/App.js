@@ -27,7 +27,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={props => <Home{...props}/>} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
             {/* {this.props.currentUser[0]} */}

@@ -11,6 +11,11 @@ class Login extends Component {
         }
       }
 
+      componentDidMount(){
+        console.log(this.props.currentUser)
+        // this.props.currentUser[0].logged_in?(this.props.history.push('/')):(this.props.history.push('/login'))
+      }
+
       handleChange=(e)=>{
         this.setState({
             [e.target.name]:e.target.value
@@ -47,4 +52,10 @@ class Login extends Component {
     }
 }
 
-export default connect(null, {signup})(Login)
+const mstp = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mstp, {signup})(Login)
