@@ -7,6 +7,7 @@ import Logout from './components/Logout';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Posts from './actions/Posts';
+import Post from './components/Post';
 
 class App extends Component {
 
@@ -31,6 +32,8 @@ class App extends Component {
             <Route exact path="/" render={props => <Home{...props}/>} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/posts/:postId" render={props => <Post{...props} posts={this.props.posts}/>} />
+            
             {/* {this.props.currentUser[0]} */}
             <Logout />
           </Switch>
@@ -42,7 +45,8 @@ class App extends Component {
 
 const mstp = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    posts:state.posts
   }
 }
 
