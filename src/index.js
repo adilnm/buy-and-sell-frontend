@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import SignUpForm from './reducers/SignUpForm';
+import thunk from 'redux-thunk';
+import Posts from './reducers/Posts';
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer=combineReducers({
-    currentUser:SignUpForm
+    currentUser:SignUpForm,
+    posts:Posts
    });
 
    const store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    rootReducer,composeEnhancer(applyMiddleware(thunk))
    );
    
    

@@ -6,11 +6,13 @@ import signup from './actions/SignUp'
 import Logout from './components/Logout';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import Posts from './actions/Posts';
 
 class App extends Component {
 
   componentDidMount() {
     this.loggedIn()
+    this.props.Posts()
   }
 
   loggedIn() {
@@ -22,7 +24,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Router>
         <div className="App">
@@ -45,4 +46,4 @@ const mstp = (state) => {
   }
 }
 
-export default connect(mstp, { signup })(App);
+export default connect(mstp, { signup, Posts})(App);
