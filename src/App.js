@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Posts from './actions/Posts';
 import Post from './components/Post';
+import PostCreate from './components/PostCreate';
 
 class App extends Component {
 
@@ -33,7 +34,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/posts/:postId" render={props => <Post{...props} posts={this.props.posts}/>} />
-            
+            <Route exact path="/createPost" component={PostCreate} />            
             {/* {this.props.currentUser[0]} */}
             <Logout />
           </Switch>
