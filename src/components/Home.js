@@ -10,7 +10,8 @@ class Home extends Component {
         return (
             <div>
                 <Link to="/login">Login</Link><br/>
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup">Sign Up</Link><br/>
+                <Link to="/createPost">Create a Post</Link>
                 {this.props.posts.length>0?<Posts posts={this.props.posts}/>:null}
             </div>
         )
