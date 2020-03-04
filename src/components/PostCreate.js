@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import Posts from '../reducers/Posts';
+import newPost from '../actions/NewPost';
 
 class PostCreate extends Component {
 
@@ -32,19 +34,7 @@ class PostCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3001/posts', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ post: this.state })
-        })
-            .then(res => res.json())
-            .then(post => {
-                this.props.history.push(`/`)
-            })
+        this.props.newPost(this.state)
     }
     render() {
         return (
@@ -78,4 +68,4 @@ const mstp = (state) => {
         currentUser: state.currentUser[0]
     }
 }
-export default connect(mstp)(PostCreate)
+export default connect(mstp,{newPost})(PostCreate)

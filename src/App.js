@@ -36,7 +36,8 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/posts/:postId" render={props => <Post{...props} posts={this.props.posts}/>} />
-            <Route exact path="/createPost" component={PostCreate}/>            
+            <Route exact path="/createPost" component={PostCreate}/>    
+                    
             {/* {this.props.currentUser[0]} */}
             <Logout />
           </Switch>

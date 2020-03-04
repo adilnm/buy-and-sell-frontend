@@ -11,17 +11,19 @@ import Posts from './reducers/Posts';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { PersistGate } from 'redux-persist/integration/react';
+import userPosts from './reducers/NewPost.js';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['currentUser', 'posts']
+    whitelist: ['currentUser', 'posts', 'userPosts']
 }
 const rootReducer = combineReducers({
     currentUser: SignUpForm,
-    posts: Posts
+    posts: Posts,
+    userPosts
 });
 
 const store = createStore(
