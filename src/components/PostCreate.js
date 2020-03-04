@@ -11,7 +11,7 @@ class PostCreate extends Component {
             title: '',
             description: '',
             price: '',
-            user_id: props.currentUser.user.id,
+            user_id: '',
             category_id:''
         }
     }
@@ -36,6 +36,7 @@ class PostCreate extends Component {
         e.preventDefault()
         this.props.newPost(this.state)
     }
+    
     render() {
         return (
             <div>
@@ -45,6 +46,7 @@ class PostCreate extends Component {
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
                     <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
                     <input onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
+                    <input type="hidden" name="user_id" value={this.props.currentUser.id}/>
                     <select onChange={this.handleSelect} id="category_id">
                         <option value='1'>Electronics</option>
                         <option value='2'>Hobbies</option>

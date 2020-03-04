@@ -9,22 +9,22 @@ import Home from './components/Home';
 import Posts from './actions/Posts';
 import Post from './components/Post';
 import PostCreate from './components/PostCreate';
+import MyPosts from './components/MyPosts';
 
 class App extends Component {
 
   componentDidMount() {
-    this.loggedIn()
     this.props.Posts()
   }
 
-  loggedIn() {
+  // loggedIn() {
 
-    fetch('http://localhost:3001/loggedin', { credentials: 'include' })
-      .then(res => res.json())
-      .then(user => {
-        this.props.signup(user)
-      })
-  }
+  //   fetch('http://localhost:3001/loggedin', { credentials: 'include' })
+  //     .then(res => res.json())
+  //     .then(user => {
+  //       this.props.signup(user)
+  //     })
+  // }
 
   render() {
     return (
@@ -37,7 +37,9 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/posts/:postId" render={props => <Post{...props} posts={this.props.posts}/>} />
             <Route exact path="/createPost" component={PostCreate}/>    
-                    
+            <Route exact path="/myposts" component={MyPosts}/>    
+            <Route exact path="/logout" component={Logout}/>    
+            
             {/* {this.props.currentUser[0]} */}
             <Logout />
           </Switch>
