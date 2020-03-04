@@ -15,7 +15,7 @@ class PostCreate extends Component {
     }
 
     componentDidMount() {
-        return (!this.props.currentUser.logged_in ? this.props.history.push('/login') : null)
+        // return (!this.props.currentUser.logged_in ? this.props.history.push('/login') : null)
     }
 
     handleChange = (e) => {
@@ -49,6 +49,7 @@ class PostCreate extends Component {
     render() {
         return (
             <div>
+                {!this.props.currentUser.logged_in ? this.props.history.push('/login') : null}
                 <h1>Create A New Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />

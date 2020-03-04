@@ -8,20 +8,36 @@ import * as serviceWorker from './serviceWorker';
 import SignUpForm from './reducers/SignUpForm';
 import thunk from 'redux-thunk';
 import Posts from './reducers/Posts';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { PersistGate } from 'redux-persist/integration/react';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer=combineReducers({
-    currentUser:SignUpForm,
-    posts:Posts
-   });
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['currentUser', 'posts']
+}
+const rootReducer = combineReducers({
+    currentUser: SignUpForm,
+    posts: Posts
+});
 
-   const store = createStore(
-    rootReducer,composeEnhancer(applyMiddleware(thunk))
-   );
-   
-   
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+const store = createStore(
+    persistReducer(persistConfig, rootReducer), composeEnhancer(applyMiddleware(thunk))
+);
+
+const persistor = persistStore(store)
+
+
+ReactDOM.render(
+    <Provider store={store}>
+        <PersistGate persistor={persistor}>
+            <App />
+        </PersistGate>
+    </Provider>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

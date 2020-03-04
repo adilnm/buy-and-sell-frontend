@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   loggedIn() {
+
     fetch('http://localhost:3001/loggedin', { credentials: 'include' })
       .then(res => res.json())
       .then(user => {
@@ -27,6 +28,7 @@ class App extends Component {
 
   render() {
     return (
+        <div>
       <Router>
         <div className="App">
           <Switch>
@@ -40,6 +42,7 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+        </div>
     );
   }
 }
@@ -50,5 +53,6 @@ const mstp = (state) => {
     posts:state.posts
   }
 }
+
 
 export default connect(mstp, { signup, Posts})(App);
