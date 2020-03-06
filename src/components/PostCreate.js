@@ -2,17 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Posts from '../reducers/Posts';
 import newPost from '../actions/NewPost';
+import Dropzone from 'react-dropzone';
 
 class PostCreate extends Component {
 
     constructor(props) {
         super(props)
+        // this.onDrop = (images) => {
+        //     this.setState({ images })
+        // };
+
         this.state = {
             title: '',
             description: '',
             price: '',
             user_id: '',
-            category_id:''
+            category_id: '',
+            images: ''
         }
     }
 
@@ -23,20 +29,35 @@ class PostCreate extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
+            user_id:this.props.currentUser.user.id
         })
     }
 
-    handleSelect=(e)=>{
+    handleSelect = (e) => {
         this.setState({
-            category_id:parseInt(document.querySelector('#category_id').value)
+            category_id: parseInt(document.querySelector('#category_id').value)
         })
+    }
+
+    handleImages = event => {
+        const formData= new FormData();
+        formData.append('images', event.target.files[0])
+        this.setState({
+            images: formData
+        })
+        // let reader = new FileReader();
+        // reader.onload = (e) => {
+        //   this.setState({images: e.target.result});
+        // };
+        // reader.readAsDataURL(event.target.images[0]);
+
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.newPost(this.state)
     }
-    
+
     render() {
         return (
             <div>
@@ -46,7 +67,19 @@ class PostCreate extends Component {
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
                     <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
                     <input onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
-                    <input type="hidden" name="user_id" value={this.props.currentUser.id}/>
+                    {/* <input type="hidden" name="user_id" value={this.props.currentUser.user.id} /> */}
+                    <label htmlFor="images">Upload images:</label>
+                    <input onChange={this.handleImages} type="file"  name="images" accept="image/*" ></input><br/>
+                    {/* <Dropzone onDrop={this.onDrop}>
+                        {({ getRootProps, getInputProps }) => (
+                            <section className="container">
+                                <div {...getRootProps({ className: 'dropzone' })}>
+                                    <input {...getInputProps()} />
+                                    <p>Drag 'n' drop some images here, or click to select images</p>
+                                </div>
+                            </section>
+                        )}
+                    </Dropzone> */}
                     <select onChange={this.handleSelect} id="category_id">
                         <option value='1'>Electronics</option>
                         <option value='2'>Hobbies</option>
@@ -57,9 +90,10 @@ class PostCreate extends Component {
                         <option value='7'>Family</option>
                         <option value='8'>Entertainment</option>
                         <option value='9'>Deals</option>
-                    </select><br/>
+                    </select><br />
                     <input type="submit" value="SUBMIT" />
                 </form>
+                <img src={this.state.images} alt="some" />
             </div>
         )
     }
@@ -70,4 +104,4 @@ const mstp = (state) => {
         currentUser: state.currentUser[0]
     }
 }
-export default connect(mstp,{newPost})(PostCreate)
+export default connect(mstp, { newPost })(PostCreate)
