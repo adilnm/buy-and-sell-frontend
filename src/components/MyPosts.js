@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class MyPosts extends Component {
     render() {
+        debugger
         return (
             <div>
                 {!this.props.currentUser.logged_in?this.props.history.push('/login'):null}

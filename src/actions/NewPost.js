@@ -3,15 +3,14 @@ export default function (post) {
         fetch('http://localhost:3001/posts', {
             method: 'POST',
             credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ post })
+            // headers: {
+            //     'Content-Type': 'application/json',
+            //     'Accept': 'application/json'
+            // },
+            body:post
         })
             .then(res => res.json())
-            .then(json => {
-                return  dispatch({type:'ADD-NEW-POST',posts:json.posts})
-            })
+            .then(posts =>dispatch({ type: 'ADD-NEW-POST', posts }))
+            
     }
 }

@@ -24,6 +24,7 @@ const rootReducer = combineReducers({
     currentUser: SignUpForm,
     posts: Posts,
     userPosts
+
 });
 
 const store = createStore(

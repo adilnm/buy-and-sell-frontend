@@ -8,6 +8,7 @@ export default function Post({ posts, match }) {
             <h1>{post.title}</h1>
             <h4>{post.price}</h4>
             <p>{post.description}</p>
+            <img className="background-image" src={post.image.url} alt="background" />
         </div>
     )
 }

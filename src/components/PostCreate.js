@@ -40,10 +40,11 @@ class PostCreate extends Component {
     }
 
     handleImages = event => {
+
         const formData= new FormData();
         formData.append('images', event.target.files[0])
         this.setState({
-            images: formData
+            images: event.target.files[0]
         })
         // let reader = new FileReader();
         // reader.onload = (e) => {
@@ -55,7 +56,14 @@ class PostCreate extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.newPost(this.state)
+        const formData = new FormData();
+        formData.append('[post]title', this.state.title)
+        formData.append('[post]description', this.state.description)
+        formData.append('[post]price', this.state.price)
+        formData.append('[post]user_id', this.state.user_id)
+        formData.append('[post]category_id', this.state.category_id)
+        formData.append("[post]image", this.state.images)
+        this.props.newPost(formData)
     }
 
     render() {
