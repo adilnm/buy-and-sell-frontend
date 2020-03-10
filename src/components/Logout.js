@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import SignUp from '../actions/SignUp';
-
+import  logout from "../actions/Logout";
 class Logout extends Component {
 
     logout(){
-        fetch('http://localhost:3001/logout', {
+         fetch('http://localhost:3001/logout', {
             credentials: "include",
             method: "DELETE"
+          }).then(res=>{
+              console.log(res)
           })
         
     }
     render() {
         return (
             <div>
-                {this.logout()}
+                {this.props.logout()}
                 {/* {this.props.history.push('/')} */}
             </div>
         )
     }
 }
 
-export default connect(null,{SignUp})(Logout)
+export default connect(null,{SignUp,logout})(Logout)

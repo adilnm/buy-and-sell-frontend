@@ -10,7 +10,7 @@ export default function (post) {
             body:post
         })
             .then(res => res.json())
-            .then(posts =>dispatch({ type: 'ADD-NEW-POST', posts }))
+            .then(post =>dispatch({ type: 'ADD-NEW-POST', post }))
             
     }
 }

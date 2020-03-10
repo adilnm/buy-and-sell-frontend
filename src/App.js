@@ -10,6 +10,7 @@ import Posts from './actions/Posts';
 import Post from './components/Post';
 import PostCreate from './components/PostCreate';
 import MyPosts from './components/MyPosts';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 

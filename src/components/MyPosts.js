@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
+import myPosts from '../actions/MyPosts';
 
 class MyPosts extends Component {
     render() {
-        debugger
         return (
             <div>
                 {!this.props.currentUser.logged_in?this.props.history.push('/login'):null}
+                {this.props.myPosts()}
                 <h1>My Posts</h1>
                 <ul>
-                    {this.props.myPosts.map(post =>
+                    {this.props.userPosts.map(post =>
                             <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link>
                     )}
                 </ul>
@@ -21,9 +22,9 @@ class MyPosts extends Component {
 
 const mstp = state => (
     {
-        myPosts: state.userPosts,
+        userPosts: state.myPosts,
         currentUser:state.currentUser[0]
     }
 )
 
-export default connect(mstp)(MyPosts)
+export default connect(mstp, {myPosts})(MyPosts)
