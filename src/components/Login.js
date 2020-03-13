@@ -12,8 +12,7 @@ class Login extends Component {
       }
 
       componentDidMount(){
-        console.log(this.props.currentUser)
-        // this.props.currentUser[0].logged_in?(this.props.history.push('/')):(this.props.history.push('/login'))
+        return this.props.currentUser[0].logged_in?(this.props.history.push('/')):null
       }
 
       handleChange=(e)=>{
