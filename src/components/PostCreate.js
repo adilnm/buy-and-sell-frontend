@@ -78,16 +78,6 @@ class PostCreate extends Component {
                     {/* <input type="hidden" name="user_id" value={this.props.currentUser.user.id} /> */}
                     <label htmlFor="images">Upload images:</label>
                     <input onChange={this.handleImages} type="file"  name="images" accept="image/*" ></input><br/>
-                    {/* <Dropzone onDrop={this.onDrop}>
-                        {({ getRootProps, getInputProps }) => (
-                            <section className="container">
-                                <div {...getRootProps({ className: 'dropzone' })}>
-                                    <input {...getInputProps()} />
-                                    <p>Drag 'n' drop some images here, or click to select images</p>
-                                </div>
-                            </section>
-                        )}
-                    </Dropzone> */}
                     <select onChange={this.handleSelect} id="category_id">
                         <option value='1'>Electronics</option>
                         <option value='2'>Hobbies</option>
@@ -101,7 +91,6 @@ class PostCreate extends Component {
                     </select><br />
                     <input type="submit" value="SUBMIT" />
                 </form>
-                <img src={this.state.images} alt="some" />
             </div>
         )
     }

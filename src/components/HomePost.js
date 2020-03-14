@@ -17,7 +17,6 @@ export default class HomePost extends Component {
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
     render() {
-        debugger
         return (
             <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                     <div>
