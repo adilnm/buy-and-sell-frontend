@@ -17,24 +17,26 @@ export default class HomePost extends Component {
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
     render() {
+        debugger
         return (
             <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                     <div>
                         <img className="card-img-top" src={this.props.post.image ? this.props.post.image.url : ""} alt="Post image"></img>
                         <div className="card-body">
                             <h3 className="card-title"> {this.props.post.title}</h3>
-                            <p className="card-text">{this.props.post.description}</p>
-                            <button onClick={this.handleClick}>description</button>
+                            <h5 > {this.props.post.price}</h5>
+                            <button className="btn btn-primary" onClick={this.handleClick}>Description</button>
                         </div>
                     </div>
                     <div>
-                        <img className="card-img-top" src={this.props.post.image ? this.props.post.image.url : ""} alt="Post image"></img>
                         <div className="card-body">
                             <h3 className="card-title"> {this.props.post.title}</h3>
+                            <h5 > {this.props.post.price}</h5>
                             <p className="card-text">{this.props.post.description}</p>
-                            <button onClick={this.handleClick}>description</button>
+                            <button className="btn btn-primary" onClick={this.handleClick}>Back to post</button>
                         </div> 
                     </div>
+                    
             </ReactCardFlip>
 
         )

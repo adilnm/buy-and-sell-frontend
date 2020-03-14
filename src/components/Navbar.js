@@ -14,6 +14,9 @@ function Navbar({ currentUser }) {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/myposts">My Posts</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/createPost">Create a Post</Link>
                         </li>
                         <li className="nav-item dropdown">

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import myPosts from '../actions/MyPosts';
+import HomePost from './HomePost';
 
 class MyPosts extends Component {
     render() {
@@ -10,11 +11,10 @@ class MyPosts extends Component {
                 {!this.props.currentUser.logged_in?this.props.history.push('/login'):null}
                 {this.props.myPosts()}
                 <h1>My Posts</h1>
-                <ul>
-                    {this.props.userPosts.map(post =>
-                            <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link>
-                    )}
-                </ul>
+                <div className="flex-container">
+                    {this.props.userPosts.map(post => <HomePost post={post} />)}
+                             {/* <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link> */}
+                </div>
             </div>
         )
     }
