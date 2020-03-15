@@ -11,6 +11,7 @@ import Post from './components/Post';
 import PostCreate from './components/PostCreate';
 import MyPosts from './components/MyPosts';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EditPost from './components/EditPost';
 
 class App extends Component {
 

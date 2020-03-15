@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import ReactCardFlip from 'react-card-flip';
 import '../style/style.css'
+import EditPost from './EditPost';
+import { Button, Modal } from "react-bootstrap";
 
 export default class HomePost extends Component {
 
@@ -33,8 +35,17 @@ export default class HomePost extends Component {
                             <h5 > {this.props.post.price}</h5>
                             <p className="card-text">{this.props.post.description}</p>
                             <button className="btn btn-primary" onClick={this.handleClick}>Back to post</button>
-                            <button className="btn btn-primary">Edit</button>
+                            {/* <button className="btn btn-primary" >Edit</button> */}
+                            <Button>Edit Modal</Button>
+                            <Modal show={true}>
+                                <Modal.Header>Header</Modal.Header>
+                                <Modal.Body>
+                                    {<EditPost/>}
+                                </Modal.Body>
+                                <Modal.Footer>Footer</Modal.Footer>
+                            </Modal>
                         </div> 
+                        {<EditPost/>}
                     </div>
                     
             </ReactCardFlip>

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class EditPost extends Component {
     render() {
         return (
-            <div>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
                     <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
@@ -24,7 +23,6 @@ export default class EditPost extends Component {
                     </select><br />
                     <input type="submit" value="SUBMIT" />
                 </form>
-            </div>
         )
     }
 }
