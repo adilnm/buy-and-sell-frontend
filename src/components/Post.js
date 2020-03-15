@@ -10,7 +10,9 @@ export default class HomePost extends Component {
     constructor() {
         super();
         this.state = {
-            isFlipped: false
+            isFlipped: false,
+            show:false
+
         };
     }
 
@@ -18,34 +20,43 @@ export default class HomePost extends Component {
         e.preventDefault();
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
+
+    handleModalClick=(e)=>{
+        this.setState({show:!this.state.show})
+    }
     render() {
+        const {post}=this.props
         return (
             <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                     <div>
-                        <img className="card-img-top" src={this.props.post.image ? this.props.post.image.url : ""} alt="Post image"></img>
+                        <img className="card-img-top" src={post.image ? post.image.url : ""} alt="Post image"></img>
                         <div className="card-body">
-                            <h3 className="card-title"> {this.props.post.title}</h3>
-                            <h5 > {this.props.post.price}</h5>
+                            <h3 className="card-title"> {post.title}</h3>
+                            <h5 > {post.price}</h5>
                             <button className="btn btn-primary" onClick={this.handleClick}>Description</button>
                         </div>
                     </div>
                     <div>
                         <div className="card-body">
-                            <h3 className="card-title"> {this.props.post.title}</h3>
-                            <h5 > {this.props.post.price}</h5>
-                            <p className="card-text">{this.props.post.description}</p>
+                            <h3 className="card-title"> {post.title}</h3>
+                            <h5 > {post.price}</h5>
+                            <p className="card-text">{post.description}</p>
                             <button className="btn btn-primary" onClick={this.handleClick}>Back to post</button>
                             {/* <button className="btn btn-primary" >Edit</button> */}
-                            <Button>Edit Modal</Button>
-                            <Modal show={true}>
-                                <Modal.Header>Header</Modal.Header>
+                            <Button onClick={this.handleModalClick}>Edit Modal</Button>
+                            <Modal show={this.state.show}>
+                                <Modal.Header >
+                                    <Modal.Title>Edit Post</Modal.Title>
+                                </Modal.Header>
                                 <Modal.Body>
-                                    {<EditPost/>}
+                                    {<EditPost post={post}/>}
                                 </Modal.Body>
-                                <Modal.Footer>Footer</Modal.Footer>
+                                <Modal.Footer>
+                                    <Button onClick={this.handleModalClick}>Close</Button>
+                                    <Button>Update</Button>
+                                </Modal.Footer>
                             </Modal>
                         </div> 
-                        {<EditPost/>}
                     </div>
                     
             </ReactCardFlip>

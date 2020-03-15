@@ -29,7 +29,7 @@ class PostCreate extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
-            user_id:this.props.currentUser.user.id
+            user_id: this.props.currentUser.user.id
         })
     }
 
@@ -40,18 +40,11 @@ class PostCreate extends Component {
     }
 
     handleImages = event => {
-
-        const formData= new FormData();
+        const formData = new FormData();
         formData.append('images', event.target.files[0])
         this.setState({
             images: event.target.files[0]
         })
-        // let reader = new FileReader();
-        // reader.onload = (e) => {
-        //   this.setState({images: e.target.result});
-        // };
-        // reader.readAsDataURL(event.target.images[0]);
-
     }
 
     handleSubmit = (e) => {
@@ -77,8 +70,9 @@ class PostCreate extends Component {
                     <input onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
                     {/* <input type="hidden" name="user_id" value={this.props.currentUser.user.id} /> */}
                     <label htmlFor="images">Upload images:</label>
-                    <input onChange={this.handleImages} type="file"  name="images" accept="image/*" ></input><br/>
+                    <input onChange={this.handleImages} type="file" name="images" accept="image/*" ></input><br />
                     <select onChange={this.handleSelect} id="category_id">
+                        <option value="" selected disabled hidden>Choose here</option>
                         <option value='1'>Electronics</option>
                         <option value='2'>Hobbies</option>
                         <option value='3'>Home & Garden</option>
