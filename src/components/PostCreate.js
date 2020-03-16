@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Posts from '../reducers/Posts';
 import newPost from '../actions/NewPost';
 import Dropzone from 'react-dropzone';
+import Navbar from './Navbar';
 
 class PostCreate extends Component {
 
@@ -57,6 +58,7 @@ class PostCreate extends Component {
         return (
             <div>
                 {!this.props.currentUser.logged_in ? this.props.history.push('/login') : null}
+                <Navbar/>
                 <h1>Create A New Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />

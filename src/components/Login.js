@@ -35,6 +35,8 @@ class Login extends Component {
           .then(user=>{
             this.props.signup(user)
           })
+          .then(()=>this.props.history.push('/'))
+          
       }
      
     render() {
