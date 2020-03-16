@@ -24,6 +24,8 @@ export default class HomePost extends Component {
     handleModalClick=(e)=>{
         this.setState({show:!this.state.show})
     }
+
+
     render() {
         const {post}=this.props
         return (
@@ -49,11 +51,10 @@ export default class HomePost extends Component {
                                     <Modal.Title>Edit Post</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    {<EditPost post={post}/>}
+                                    {<EditPost closeModal={this.handleModalClick} post={post}/>}
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button onClick={this.handleModalClick}>Close</Button>
-                                    <Button>Update</Button>
                                 </Modal.Footer>
                             </Modal>
                         </div> 

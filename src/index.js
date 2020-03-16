@@ -26,7 +26,6 @@ const rootReducer = combineReducers({
     posts: Posts,
     userPosts,
     myPosts
-
 });
 
 const store = createStore(

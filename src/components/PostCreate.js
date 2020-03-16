@@ -8,9 +8,6 @@ class PostCreate extends Component {
 
     constructor(props) {
         super(props)
-        // this.onDrop = (images) => {
-        //     this.setState({ images })
-        // };
 
         this.state = {
             title: '',
@@ -22,9 +19,6 @@ class PostCreate extends Component {
         }
     }
 
-    componentDidMount() {
-        // return (!this.props.currentUser.logged_in ? this.props.history.push('/login') : null)
-    }
 
     handleChange = (e) => {
         this.setState({
@@ -68,7 +62,6 @@ class PostCreate extends Component {
                     <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
                     <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
                     <input onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
-                    {/* <input type="hidden" name="user_id" value={this.props.currentUser.user.id} /> */}
                     <label htmlFor="images">Upload images:</label>
                     <input onChange={this.handleImages} type="file" name="images" accept="image/*" ></input><br />
                     <select onChange={this.handleSelect} id="category_id">

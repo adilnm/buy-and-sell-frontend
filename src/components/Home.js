@@ -8,11 +8,9 @@ class Home extends Component {
     
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <Navbar/>
-
                 {this.props.posts.length>0?<Posts posts={this.props.posts}/>:null}
             </div>
         )
