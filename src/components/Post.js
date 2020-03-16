@@ -4,8 +4,10 @@ import ReactCardFlip from 'react-card-flip';
 import '../style/style.css'
 import EditPost from './EditPost';
 import { Button, Modal } from "react-bootstrap";
+import DeletePoste from '../actions/DeletePoste';
+import { connect } from 'react-redux';
 
-export default class HomePost extends Component {
+class Post extends Component {
 
     constructor() {
         super();
@@ -25,6 +27,9 @@ export default class HomePost extends Component {
         this.setState({show:!this.state.show})
     }
 
+    handleDelete=e=>{
+        this.props.DeletePoste(this.props.post)
+    }
 
     render() {
         const {post}=this.props
@@ -36,6 +41,7 @@ export default class HomePost extends Component {
                             <h3 className="card-title"> {post.title}</h3>
                             <h5 > {post.price}</h5>
                             <button className="btn btn-primary" onClick={this.handleClick}>Description</button>
+                            <button className="btn btn-danger" onClick={this.handleDelete}>Delete Post</button>
                         </div>
                     </div>
                     <div>
@@ -65,4 +71,6 @@ export default class HomePost extends Component {
         )
     }
 }
+
+export default connect(null, {DeletePoste})(Post)
 
