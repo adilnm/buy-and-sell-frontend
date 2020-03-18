@@ -18,7 +18,8 @@ export default class HomePost extends Component {
     }
     render() {
         return (
-            <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+            <div className={this.props.post.category_id}>
+                <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                     <div>
                         <img className="card-img-top" src={this.props.post.image ? this.props.post.image.url : ""} alt="Post image"></img>
                         <div className="card-body">
@@ -37,6 +38,7 @@ export default class HomePost extends Component {
                     </div>
                     
             </ReactCardFlip>
+            </div>
 
         )
     }

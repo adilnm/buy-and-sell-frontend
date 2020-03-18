@@ -11,10 +11,3 @@ export default class Posts extends Component {
         )
     }
 }
-
-
-{/* <ul>
-                {posts.map(post=>
-                   <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link>
-                )}
-                </ul> */}
