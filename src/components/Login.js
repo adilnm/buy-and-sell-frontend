@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import background from "../images/transacton.jpg";
 import '../style/style.css'
 import { FaUserAlt, FaKey } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor() {
@@ -57,13 +58,13 @@ class Login extends Component {
                 <form onSubmit={this.handleSubmit}>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
-                      <span ><FaUserAlt className="icon" size='1.5rem'/></span>
+                      <span ><FaUserAlt className="icon" size='1.5rem' /></span>
                     </div>
                     <input onChange={this.handleChange} className="form-control" name="username" placeholder="Username" type="text" /><br />
                   </div>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
-                      <span ><FaKey className="icon" size='1.5rem'/></span>
+                      <span ><FaKey className="icon" size='1.5rem' /></span>
                     </div>
                     <input onChange={this.handleChange} className="form-control" name="password" placeholder="Password" type="password" />
                   </div>
@@ -71,6 +72,11 @@ class Login extends Component {
                     <input type="submit" className="btn float-right login_btn" value="Log in" />
                   </div>
                 </form>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                  Don't have an account?<Link to="/signup">Sign up</Link>
+                </div>
               </div>
             </div>
           </div>
