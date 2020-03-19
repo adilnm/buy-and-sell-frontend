@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import signup from '../actions/SignUp'
+import Navbar from './Navbar';
 
 class SignUp extends Component {
     constructor() {
@@ -32,6 +33,7 @@ class SignUp extends Component {
             body: JSON.stringify({user:this.state})
         }).then(res=>res.json())
           .then(user=>{
+            debugger
             this.props.signup(user)
           })
       }
@@ -39,6 +41,7 @@ class SignUp extends Component {
     render() {
         return (
             <div>
+              <Navbar />
                 <h1>Sign Up</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} name="firstName" placeholder="First Name"type="text"/><br/>

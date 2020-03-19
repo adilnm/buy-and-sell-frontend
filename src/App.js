@@ -19,18 +19,10 @@ class App extends Component {
     this.props.Posts()
   }
 
-  // loggedIn() {
-
-  //   fetch('http://localhost:3001/loggedin', { credentials: 'include' })
-  //     .then(res => res.json())
-  //     .then(user => {
-  //       this.props.signup(user)
-  //     })
-  // }
 
   render() {
     return (
-        <div>
+        <div className="main-page">
       <Router>
         <div className="App">
           <Switch>
@@ -42,7 +34,6 @@ class App extends Component {
             <Route exact path="/myposts" component={MyPosts}/>    
             <Route exact path="/logout" component={Logout}/>    
             
-            {/* {this.props.currentUser[0]} */}
             <Logout />
           </Switch>
         </div>
