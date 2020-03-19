@@ -6,18 +6,21 @@ import background from "../images/transacton.jpg";
 import '../style/style.css'
 import { FaUserAlt, FaKey } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import Errors from './Errors';
 
 class Login extends Component {
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      errors: ''
     }
+
   }
 
   componentDidMount() {
-    return this.props.currentUser[0].logged_in ? (this.props.history.push('/')) : null
+    return this.props.currentUser.logged_in ? (this.props.history.push('/')) : null
   }
 
   handleChange = (e) => {
@@ -40,17 +43,34 @@ class Login extends Component {
       .then(user => {
         this.props.signup(user)
       })
-      .then(() => this.props.history.push('/'))
+      .then(() => {
+        if (this.props.currentUser.logged_in) {
+          this.props.history.push('/')
+        }
+        else {
+          this.setState({
+            errors: this.props.currentUser.errors
+          })
+          document.getElementById("errors").className += " alert alert-danger";
+        }
+      })
 
   }
+
 
   render() {
     return (
       <div>
         <Navbar />
         <div className="container">
+
           <div class="d-flex justify-content-center h-100">
+
             <div class="card">
+              
+              <div id="errors" role="alert">
+                {this.state.errors}
+              </div>
               <div class="card-header">
                 <h3>Sign In</h3>
               </div>
@@ -69,7 +89,7 @@ class Login extends Component {
                     <input onChange={this.handleChange} className="form-control" name="password" placeholder="Password" type="password" />
                   </div>
                   <div className="form-group">
-                    <input type="submit" className="btn float-right login_btn" value="Log in" />
+                    <input type="submit" className="btn float-right login_btn" style={{ backgroundColor: "#FFC312" }} value="Log in" />
                   </div>
                 </form>
               </div>
@@ -88,7 +108,7 @@ class Login extends Component {
 
 const mstp = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser[0]
   }
 }
 

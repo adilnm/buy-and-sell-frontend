@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import signup from '../actions/SignUp'
 import Navbar from './Navbar';
-import { FaUserAlt, FaKey } from "react-icons/fa";
+import { FaUserAlt, FaKey, FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
@@ -36,7 +36,6 @@ class SignUp extends Component {
       body: JSON.stringify({ user: this.state })
     }).then(res => res.json())
       .then(user => {
-        debugger
         this.props.signup(user)
       })
   }
@@ -83,13 +82,20 @@ class SignUp extends Component {
 
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
+                      <span ><FaPhone className="icon" size='1.5rem' /></span>
+                    </div>
+                    <input className="form-control" name="phonenumber" placeholder="Phone Number" type="tel" />
+                  </div>
+
+                  <div className="input-group form-group">
+                    <div className="input-group-prepend">
                       <span ><FaKey className="icon" size='1.5rem' /></span>
                     </div>
                     <input onChange={this.handleChange} className="form-control" name="password" placeholder="Password" type="password" />
                   </div>
 
                   <div className="form-group">
-                    <input type="submit" className="btn float-right login_btn" value="Sign Up" />
+                    <input type="submit" className="btn float-right login_btn"  style={{backgroundColor: "#FFC312"}} value="Sign Up" />
                   </div>
                 </form>
               </div>
