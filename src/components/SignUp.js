@@ -14,7 +14,8 @@ class SignUp extends Component {
       lastName: '',
       username: '',
       email: '',
-      password: ''
+      password: '',
+      errors: ''
     }
   }
 
@@ -38,6 +39,17 @@ class SignUp extends Component {
       .then(user => {
         this.props.signup(user)
       })
+      .then(() => {
+        if (this.props.currentUser.logged_in) {
+          this.props.history.push('/')
+        }
+        else {
+          this.setState({
+            errors: this.props.currentUser.errors
+          })
+          document.getElementById("errors").className += " alert alert-danger";
+        }
+      })
   }
 
   render() {
@@ -47,6 +59,14 @@ class SignUp extends Component {
         <div className="container">
           <div class="d-flex justify-content-center h-100">
             <div class="card">
+              <div id="errors" role="alert">
+                <ul>
+                  {
+                  (this.state.errors) ?this.state.errors.map(error => <li>{error}</li>):null
+                    
+                  }
+                </ul>
+              </div>
               <div class="card-header">
                 <h3>Sign Up</h3>
               </div>
@@ -95,7 +115,7 @@ class SignUp extends Component {
                   </div>
 
                   <div className="form-group">
-                    <input type="submit" className="btn float-right login_btn"  style={{backgroundColor: "#FFC312"}} value="Sign Up" />
+                    <input type="submit" className="btn float-right login_btn" style={{ backgroundColor: "#FFC312" }} value="Sign Up" />
                   </div>
                 </form>
               </div>
@@ -113,4 +133,10 @@ class SignUp extends Component {
   }
 }
 
-export default connect(null, { signup })(SignUp)
+const mstp = (state) => {
+  return {
+    currentUser: state.currentUser[0]
+  }
+}
+
+export default connect(mstp, { signup })(SignUp)

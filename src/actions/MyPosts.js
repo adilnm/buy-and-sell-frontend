@@ -4,7 +4,6 @@ export default ()=>{
             credentials: 'include'})
         .then(res=>res.json())
         .then(posts=>{
-            debugger
            dispatch({ type: 'MY-POSTS', posts })
         })
     }
