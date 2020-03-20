@@ -28,9 +28,9 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('../images/tran.jpg');
+background-image: url('../images/wood-texture-background-pine-82256.jpg');
 background-size: cover;
-background-repeat: no-repeat;
+background-repeat: repeat-y;
 height: 100%;
 font-family: 'Numans', sans-serif;
 }
@@ -112,5 +112,9 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+
+.hah{
+  background-color: burlywood;
 }
   

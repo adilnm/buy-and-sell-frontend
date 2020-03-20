@@ -45,20 +45,19 @@ class Post extends Component {
                     </div>
                 </div>
                 <div>
-                    <h3 class="card-header">{post.title}</h3>
-                    <div className="card-body">
-                        <h3> {post.price}</h3>
+                    <h3 class="card-header hah" style={{ background: "burlywood" }}>{post.title}</h3>
+                    <div className="card-body" style={{ background: " #fff9e6" }}>
+                        <h3> {post.price} </h3>
                         <p className="card-text">{post.description}</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">{this.props.currentUser.email}</li>
                         </ul>
                         <div class="card-footer text-muted">
-                        <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
-                        <Button className="btn btn-warning btn-block" onClick={this.handleModalClick}>Edit Post</Button>
+                            <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
+                            <Button className="btn btn-warning btn-block" onClick={this.handleModalClick}>Edit Post</Button>
 
                         </div>
-                           
+
                         <Modal show={this.state.show}>
                             <Modal.Header >
                                 <Modal.Title>Edit Post</Modal.Title>
@@ -79,5 +78,11 @@ class Post extends Component {
     }
 }
 
-export default connect(null, { DeletePoste })(Post)
+const mstp = (state) => {
+    return {
+      currentUser: state.currentUser[0].user
+    }
+  }
+
+export default connect(mstp, { DeletePoste })(Post)
 

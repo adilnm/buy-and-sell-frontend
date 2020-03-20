@@ -102,13 +102,6 @@ class SignUp extends Component {
 
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
-                      <span ><FaPhone className="icon" size='1.5rem' /></span>
-                    </div>
-                    <input className="form-control" name="phonenumber" placeholder="Phone Number" type="tel" />
-                  </div>
-
-                  <div className="input-group form-group">
-                    <div className="input-group-prepend">
                       <span ><FaKey className="icon" size='1.5rem' /></span>
                     </div>
                     <input onChange={this.handleChange} className="form-control" name="password" placeholder="Password" type="password" />

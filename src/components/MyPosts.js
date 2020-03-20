@@ -11,7 +11,7 @@ class MyPosts extends Component {
     }
     render() {
         return (
-            <div>
+            <div >
                 {!this.props.currentUser.logged_in?this.props.history.push('/login'):null}
                 <Navbar/>
                 <h1>My Posts</h1>

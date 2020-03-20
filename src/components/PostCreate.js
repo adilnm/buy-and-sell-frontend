@@ -58,28 +58,37 @@ class PostCreate extends Component {
         return (
             <div>
                 {!this.props.currentUser.logged_in ? this.props.history.push('/login') : null}
-                <Navbar/>
-                <h1>Create A New Post</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
-                    <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
-                    <input onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
-                    <label htmlFor="images">Upload images:</label>
-                    <input onChange={this.handleImages} type="file" name="images" accept="image/*" ></input><br />
-                    <select onChange={this.handleSelect} id="category_id">
-                        <option value="" selected disabled hidden>Choose here</option>
-                        <option value='1'>Electronics</option>
-                        <option value='2'>Hobbies</option>
-                        <option value='3'>Home & Garden</option>
-                        <option value='4'>Vehicles</option>
-                        <option value='5'>Clothing & Accessories</option>
-                        <option value='6'>Rentals</option>
-                        <option value='7'>Family</option>
-                        <option value='8'>Entertainment</option>
-                        <option value='9'>Deals</option>
-                    </select><br />
-                    <input type="submit" value="SUBMIT" />
-                </form>
+                <Navbar />
+                <div className="container">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Create A New Post</h3>
+                            </div>
+                            <form onSubmit={this.handleSubmit}>
+                                <input class="form-control" onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
+                                <textarea class="form-control" onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
+                                <input class="form-control" onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
+                                <label htmlFor="images">Upload images:</label>
+                                <input class="form-control-file" onChange={this.handleImages} type="file" name="images" accept="image/*" ></input><br />
+                                <select class="form-control" onChange={this.handleSelect} id="category_id">
+                                    <option value="" selected disabled hidden>Choose here</option>
+                                    <option value='1'>Electronics</option>
+                                    <option value='2'>Hobbies</option>
+                                    <option value='3'>Home & Garden</option>
+                                    <option value='4'>Vehicles</option>
+                                    <option value='5'>Clothing & Accessories</option>
+                                    <option value='6'>Rentals</option>
+                                    <option value='7'>Family</option>
+                                    <option value='8'>Entertainment</option>
+                                    <option value='9'>Deals</option>
+                                </select><br />
+                                <input class="btn btn-primary btn-lg btn-block" type="submit" value="SUBMIT" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         )
     }
