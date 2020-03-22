@@ -15,16 +15,6 @@
     font-size: 20px;
   }
 
-  
-  /* .main-page{
-    background-image: url(../images/tran.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  } */
-
-  /* Made with love by Mutiullah Samim*/
-
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
@@ -41,7 +31,7 @@ align-content: center;
 }
 
 .card{
-margin-top: 100px;
+margin-top: 50px;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;

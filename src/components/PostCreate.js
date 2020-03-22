@@ -69,7 +69,7 @@ class PostCreate extends Component {
                                 <input class="form-control" onChange={this.handleChange} placeholder="Title" type="text" name="title" /><br />
                                 <textarea class="form-control" onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10"></textarea><br />
                                 <input class="form-control" onChange={this.handleChange} placeholder="Price" type="text" name="price" /><br />
-                                <label htmlFor="images">Upload images:</label>
+                                <label htmlFor="images"><h5>Upload images:</h5></label>
                                 <input class="form-control-file" onChange={this.handleImages} type="file" name="images" accept="image/*" ></input><br />
                                 <select class="form-control" onChange={this.handleSelect} id="category_id">
                                     <option value="" selected disabled hidden>Choose here</option>

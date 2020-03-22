@@ -3,18 +3,18 @@ import UpdatePost from '../actions/UpdatePost';
 import { connect } from 'react-redux';
 
 class EditPost extends Component {
-    
+
     constructor(props) {
         super(props)
 
         this.state = {
-            id:props.post.id,
+            id: props.post.id,
             title: props.post.title,
             description: props.post.description,
             price: props.post.price,
             user_id: '',
             category_id: props.post.category_id,
-            images:''
+            images: ''
         }
     }
 
@@ -55,27 +55,35 @@ class EditPost extends Component {
     }
 
     render() {
-        const {post}=this.props
+        const { post } = this.props
         return (
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange}type="text" name="title" value={this.state.title} /><br />
-                    <textarea onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10" value={this.state.description}></textarea><br />
-                    <input onChange={this.handleChange} placeholder="Price" type="text" name="price" value={this.state.price}/><br />
-                    <label htmlFor="images">Upload images:</label>
-                    <input onChange={this.handleImages} type="file" name="images" accept="image/*"></input><br />
-                    <select value={this.state.category_id} onChange={this.handleSelect} id="category_id">
-                        <option value='1'>Electronics</option>
-                        <option value='2'>Hobbies</option>
-                        <option value='3'>Home & Garden</option>
-                        <option value='4'>Vehicles</option>
-                        <option value='5'>Clothing & Accessories</option>
-                        <option value='6'>Rentals</option>
-                        <option value='7'>Family</option>
-                        <option value='8'>Entertainment</option>
-                        <option value='9'>Deals</option>
-                    </select><br />
-                    <input type="submit" value="SUBMIT" />
-                </form>
+            <div className="container">
+                <div class="d-flex justify-content-center h-100">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <form onSubmit={this.handleSubmit}>
+                            <input class="form-control" onChange={this.handleChange} type="text" name="title" value={this.state.title} /><br />
+                            <textarea class="form-control" onChange={this.handleChange} placeholder="Description" name="description" id="" cols="30" rows="10" value={this.state.description}></textarea><br />
+                            <input class="form-control" onChange={this.handleChange} placeholder="Price" type="text" name="price" value={this.state.price} /><br />
+                            <label htmlFor="images">Upload images:</label>
+                            <input class="form-control-file" onChange={this.handleImages} type="file" name="images" accept="image/*"></input><br />
+                            <select class="form-control" value={this.state.category_id} onChange={this.handleSelect} id="category_id">
+                                <option value='1'>Electronics</option>
+                                <option value='2'>Hobbies</option>
+                                <option value='3'>Home & Garden</option>
+                                <option value='4'>Vehicles</option>
+                                <option value='5'>Clothing & Accessories</option>
+                                <option value='6'>Rentals</option>
+                                <option value='7'>Family</option>
+                                <option value='8'>Entertainment</option>
+                                <option value='9'>Deals</option>
+                            </select><br />
+                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="SUBMIT" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
