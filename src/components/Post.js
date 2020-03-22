@@ -32,7 +32,7 @@ class Post extends Component {
     }
 
     render() {
-        const { post } = this.props
+        const { post, loggedIn, currentUser } = this.props
         return (
             <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
                 <div>
@@ -49,10 +49,13 @@ class Post extends Component {
                     <div className="card-body" style={{ background: " #fff9e6" }}>
                         <h3> {post.price} </h3>
                         <p className="card-text">{post.description}</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{this.props.currentUser.email}</li>
-                            <li class="list-group-item">{this.props.currentUser.phone_number}</li>
-                        </ul>
+                        {loggedIn ?
+                            (<ul class="list-group list-group-flush">
+                                <li class="list-group-item">{currentUser.email}</li>
+                                <li class="list-group-item">{currentUser.phone_number}</li>
+                            </ul>):null
+                        }
+
                         <div class="card-footer text-muted">
                             <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
                             <Button className="btn btn-warning btn-block" onClick={this.handleModalClick}>Edit Post</Button>
@@ -81,9 +84,10 @@ class Post extends Component {
 
 const mstp = (state) => {
     return {
-      currentUser: state.currentUser[0].user
+        currentUser: state.currentUser[0].user,
+        loggedIn:state.currentUser[0].logged_in
     }
-  }
+}
 
 export default connect(mstp, { DeletePoste })(Post)
 

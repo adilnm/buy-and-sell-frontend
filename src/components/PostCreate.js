@@ -4,6 +4,7 @@ import Posts from '../reducers/Posts';
 import newPost from '../actions/NewPost';
 import Dropzone from 'react-dropzone';
 import Navbar from './Navbar';
+import { withRouter } from "react-router-dom"
 
 class PostCreate extends Component {
 
@@ -51,8 +52,11 @@ class PostCreate extends Component {
         formData.append('[post]user_id', this.state.user_id)
         formData.append('[post]category_id', this.state.category_id)
         formData.append("[post]image", this.state.images)
-        this.props.newPost(formData)
+        this.props.addItem(formData)
+        // this.props.history.push('/myposts')
     }
+
+
 
     render() {
         return (
@@ -99,4 +103,13 @@ const mstp = (state) => {
         currentUser: state.currentUser[0]
     }
 }
-export default connect(mstp, { newPost })(PostCreate)
+
+const mdtp = (dispatch,ownProps) => {
+    return {
+      addItem: (post) => {
+        dispatch(newPost(post,ownProps))
+      }
+    };
+   };
+   
+export default connect(mstp, mdtp)(withRouter(PostCreate))

@@ -53,6 +53,10 @@ class SignUp extends Component {
       })
   }
 
+  componentDidMount() {
+    return this.props.currentUser.logged_in ? (this.props.history.push('/')) : null
+  }
+
   render() {
     return (
       <div>
