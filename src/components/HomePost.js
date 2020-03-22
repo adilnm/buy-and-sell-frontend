@@ -35,6 +35,7 @@ export default class HomePost extends Component {
                             <p className="card-text">{this.props.post.description}</p>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">{this.props.post.user.email}</li>
+                                <li class="list-group-item">{this.props.post.user.phone_number}</li>
                             </ul>
                             <div class="card-footer text-muted">
                                 <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
