@@ -14,6 +14,7 @@ class SignUp extends Component {
       lastName: '',
       username: '',
       email: '',
+      phone_number: '',
       password: '',
       errors: ''
     }
@@ -62,8 +63,7 @@ class SignUp extends Component {
               <div id="errors" role="alert">
                 <ul>
                   {
-                  (this.state.errors) ?this.state.errors.map(error => <li>{error}</li>):null
-                    
+                    (this.state.errors) ? this.state.errors.map(error => <li>{error}</li>) : null
                   }
                 </ul>
               </div>
@@ -98,6 +98,13 @@ class SignUp extends Component {
                       <span ><MdEmail className="icon" size='1.5rem' /></span>
                     </div>
                     <input onChange={this.handleChange} className="form-control" name="email" placeholder="Email" type="email" />
+                  </div>
+
+                  <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span ><FaPhone className="icon" size='1.5rem' /></span>
+                    </div>
+                    <input onChange={this.handleChange} className="form-control" name="phone_number" placeholder="Phone Number" type="tel" />
                   </div>
 
                   <div className="input-group form-group">
