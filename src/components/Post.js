@@ -52,10 +52,10 @@ class Post extends Component {
                     <div className="card-body" style={{ background: " #fff9e6" }}>
                         <h3> {post.price} </h3>
                         <p className="card-text">{post.description}</p>
-                        <ul class="list-group list-group-flush">
+                        {loggedIn?(<ul class="list-group list-group-flush">
                             <li class="list-group-item">{currentUser.email}</li>
                             <li class="list-group-item">{currentUser.phone_number}</li>
-                        </ul>
+                        </ul>):null}
 
                         <div class="card-footer text-muted">
                             <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
