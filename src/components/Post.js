@@ -28,7 +28,10 @@ class Post extends Component {
     }
 
     handleDelete = e => {
-        this.props.DeletePoste(this.props.post)
+        const r=window.confirm("Are you sure ?")
+        if (r) {
+            this.props.DeletePoste(this.props.post)
+        }
     }
 
     render() {
@@ -49,10 +52,10 @@ class Post extends Component {
                     <div className="card-body" style={{ background: " #fff9e6" }}>
                         <h3> {post.price} </h3>
                         <p className="card-text">{post.description}</p>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">{post.user.email}</li>
-                                <li class="list-group-item">{post.user.phone_number}</li>
-                            </ul>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{post.user.email}</li>
+                            <li class="list-group-item">{post.user.phone_number}</li>
+                        </ul>
 
                         <div class="card-footer text-muted">
                             <button className="btn btn-info btn-block" onClick={this.handleClick}>Back to post</button>
@@ -83,7 +86,7 @@ class Post extends Component {
 const mstp = (state) => {
     return {
         currentUser: state.currentUser[0].user,
-        loggedIn:state.currentUser[0].logged_in
+        loggedIn: state.currentUser[0].logged_in
     }
 }
 
