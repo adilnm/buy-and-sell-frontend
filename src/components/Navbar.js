@@ -36,6 +36,7 @@ function Navbar({ currentUser }) {
                         <li className="nav-item">
                             {currentUser[0].logged_in ? <Link className="nav-link" to="/logout">Logout</Link> : null}
                         </li>
+                        
                     </ul>
                 </div>
             </nav>

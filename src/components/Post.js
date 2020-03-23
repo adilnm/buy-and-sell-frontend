@@ -53,8 +53,8 @@ class Post extends Component {
                         <h3> {post.price} </h3>
                         <p className="card-text">{post.description}</p>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{post.user.email}</li>
-                            <li class="list-group-item">{post.user.phone_number}</li>
+                            <li class="list-group-item">{currentUser.email}</li>
+                            <li class="list-group-item">{currentUser.phone_number}</li>
                         </ul>
 
                         <div class="card-footer text-muted">

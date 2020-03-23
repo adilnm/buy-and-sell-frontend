@@ -12,7 +12,7 @@ class EditPost extends Component {
             title: props.post.title,
             description: props.post.description,
             price: props.post.price,
-            user_id: '',
+            user_id: props.currentUser.user.id,
             category_id: props.post.category_id,
             images: ''
         }
@@ -22,7 +22,6 @@ class EditPost extends Component {
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
-            user_id: this.props.currentUser.user.id
         })
     }
 
