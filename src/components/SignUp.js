@@ -28,7 +28,7 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3001/users', {
+    fetch('https://young-springs-21220.herokuapp.com/users', {
       method: 'POST',
       credentials: 'include',
       headers: {
