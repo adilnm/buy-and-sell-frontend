@@ -26,7 +26,7 @@ function Navbar({ currentUser }) {
 
                     </ul>
 
-                    {/* <ul className="navbar-nav">
+                    <ul className="navbar-nav">
                         <li className="nav-item">
                             {!currentUser[0].logged_in ? <Link className="nav-link" to="/login">Login</Link> : null}
                         </li>
@@ -37,7 +37,7 @@ function Navbar({ currentUser }) {
                             {currentUser[0].logged_in ? <Link className="nav-link" to="/logout">Logout</Link> : null}
                         </li>
                         
-                    </ul> */}
+                    </ul>
                 </div>
             </nav>
         </div>
