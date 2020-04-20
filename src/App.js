@@ -12,6 +12,7 @@ import PostCreate from './components/PostCreate';
 import MyPosts from './components/MyPosts';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EditPost from './components/EditPost';
+import currentUser from './actions/currentUser';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
 
 
   render() {
+    this.props.currentUser()
     return (
         <div className="main-page">
       <Router>
@@ -51,4 +53,4 @@ const mstp = (state) => {
 }
 
 
-export default connect(mstp, { signup, Posts})(App);
+export default connect(mstp, { signup, Posts, currentUser})(App);
