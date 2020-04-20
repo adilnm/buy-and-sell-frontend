@@ -1,7 +1,7 @@
 export default ()=>{
     console.log('c')
     return dispatch=>{
-        fetch(`http://localhost:3001/myposts`, {
+        fetch(`https://young-springs-21220.herokuapp.com/myposts`, {
             credentials: 'include'})
         .then(res=>res.json())
         .then(posts=>{

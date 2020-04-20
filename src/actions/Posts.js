@@ -1,6 +1,6 @@
 export default function(){
     return (dispatch)=>{
-        fetch("http://localhost:3001/posts",{
+        fetch("https://young-springs-21220.herokuapp.com/posts",{
             credentials: 'include'
         })
             .then(res=>res.json())

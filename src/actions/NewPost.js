@@ -2,7 +2,7 @@ import { push } from 'react-router-redux';
 
 export default function (post,ownProps) {
     return (dispatch) => {
-        fetch('http://localhost:3001/posts', {
+        fetch('https://young-springs-21220.herokuapp.com/posts', {
             method: 'POST',
             credentials: 'include',
             body:post

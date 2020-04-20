@@ -1,6 +1,6 @@
 export default function(post){
     return dispatch => {
-        fetch(`http://localhost:3001/posts/${post.id}`, {
+        fetch(`https://young-springs-21220.herokuapp.com/${post.id}`, {
             method: 'PATCH',
             credentials: 'include',
             // headers: {

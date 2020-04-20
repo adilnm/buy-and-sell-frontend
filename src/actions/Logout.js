@@ -1,6 +1,6 @@
 export default function(){
     return dispatch=>{
-        fetch('http://localhost:3001/logout', {
+        fetch('https://young-springs-21220.herokuapp.com/logout', {
             credentials: "include",
             method: "DELETE"
           }).then(()=>{

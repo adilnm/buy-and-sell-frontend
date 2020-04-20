@@ -1,6 +1,6 @@
 export default function(id){
     return (dispatch)=>{
-        fetch(`http://localhost:3001/categories/${id}`,{
+        fetch(`https://young-springs-21220.herokuapp.com/categories/${id}`,{
             credentials: 'include'
         })
             .then(res=>res.json())

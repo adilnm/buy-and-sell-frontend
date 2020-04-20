@@ -1,6 +1,6 @@
 export default function (post){
     return dispatch => {
-        fetch(`http://localhost:3001/posts/${post.id}`, {
+        fetch(`https://young-springs-21220.herokuapp.com/posts/${post.id}`, {
             method: 'DELETE',
             credentials: 'include'
             
