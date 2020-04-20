@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import signup from '../actions/SignUp'
 import Navbar from './Navbar';
-import background from "../images/transacton.jpg";
 import '../style/style.css'
 import { FaUserAlt, FaKey } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-import Errors from './Errors';
 
 class Login extends Component {
   constructor(props) {

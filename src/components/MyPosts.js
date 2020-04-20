@@ -6,8 +6,11 @@ import Post from './Post';
 import Navbar from './Navbar';
 
 class MyPosts extends Component {
+    
     componentDidMount(){
+        console.log('a')
         this.props.myPosts()
+        console.log('b')
     }
     render() {
         return (
@@ -17,7 +20,6 @@ class MyPosts extends Component {
                 <h1>My Posts</h1>
                 <div className="flex-container">
                     {this.props.userPosts.map(post => <Post post={post} />)}
-                             {/* <Link key={post.id} to={`/posts/${post.id}`}><li>{post.title}</li></Link> */}
                 </div>
             </div>
         )

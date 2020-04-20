@@ -53,7 +53,6 @@ class PostCreate extends Component {
         formData.append('[post]category_id', this.state.category_id)
         formData.append("[post]image", this.state.images)
         this.props.addItem(formData)
-        // this.props.history.push('/myposts')
     }
 
 

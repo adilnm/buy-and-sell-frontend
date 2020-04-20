@@ -8,13 +8,22 @@ export default class HomePost extends Component {
     constructor() {
         super();
         this.state = {
-            isFlipped: false
+            isFlipped: false,
+            like: false
         };
+
     }
 
     handleClick = (e) => {
         e.preventDefault();
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+    }
+
+    handleLike=(e)=>{
+        this.setState(
+            prevState=>({like: !prevState.like})
+        )
+
     }
     render() {
         return (
@@ -25,6 +34,7 @@ export default class HomePost extends Component {
                         <div className="card-body">
                             <h3 className="card-title"> {this.props.post.title}</h3>
                             <h5 > {this.props.post.price}</h5>
+                            <button onClick={this.handleLike}>{this.state.like?'like':'unlike'}</button>
                             <button className="btn btn-info btn-block" onClick={this.handleClick}>Description</button>
                         </div>
                     </div>
