@@ -62,14 +62,14 @@ class Login extends Component {
         <Navbar />
         <div className="container">
 
-          <div class="d-flex justify-content-center h-100">
+          <div className="d-flex justify-content-center h-100">
 
-            <div class="card">
-              
+            <div className="card">
+
               <div id="errors" role="alert">
                 {this.state.errors}
               </div>
-              <div class="card-header">
+              <div className="card-header">
                 <h3>Sign In</h3>
               </div>
               <div className="card-body">
@@ -91,8 +91,8 @@ class Login extends Component {
                   </div>
                 </form>
               </div>
-              <div class="card-footer">
-                <div class="d-flex justify-content-center links">
+              <div className="card-footer">
+                <div className="d-flex justify-content-center links">
                   Don't have an account?<Link to="/signup">Sign up</Link>
                 </div>
               </div>
